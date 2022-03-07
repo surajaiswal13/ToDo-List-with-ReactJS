@@ -11,7 +11,8 @@ function App() {
   }
 
   function handleClick() {
-    setItems(prevItems => [...prevItems, inputText])
+    setItems(prevItems => [...prevItems, inputText]);
+    setInputText("");
   }
 
   return (
@@ -20,7 +21,7 @@ function App() {
         <h1>To-Do List</h1>
       </div>
       <div className="form">
-        <input onChange={handleChange} type="text" />
+        <input onChange={handleChange} type="text" value={inputText} />
         <button onClick={handleClick}>
           <span>Add</span>
         </button>
