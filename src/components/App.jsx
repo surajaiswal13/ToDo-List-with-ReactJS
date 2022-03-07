@@ -2,11 +2,16 @@ import React, { useState } from "react";
 
 function App() {
 
-  const [item, setItem] = useState("");
+  const [inputText, setInputText] = useState("");
+  const [items, setItems] = useState([]);
 
   function handleChange(event) {
     const newValue = event.target.value
-    setItem(newValue);
+    setInputText(newValue);
+  }
+
+  function handleClick() {
+    setItems(prevItems => [...prevItems, inputText])
   }
 
   return (
@@ -16,13 +21,14 @@ function App() {
       </div>
       <div className="form">
         <input onChange={handleChange} type="text" />
-        <button>
+        <button onClick={handleClick}>
           <span>Add</span>
         </button>
       </div>
       <div>
         <ul>
           <li>A Item </li>
+          {items.map(toDoItem => <li>{toDoItem}</li>)}
         </ul>
       </div>
     </div>
