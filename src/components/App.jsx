@@ -6,9 +6,8 @@ function App() {
 
   const [items, setItems] = useState([]);
 
-  function handleClick(inputText, setInputText) {
+  function handleClick(inputText) {
     setItems(prevItems => [...prevItems, inputText]);
-    setInputText("");
   }
 
   function deleteItem(id) {
